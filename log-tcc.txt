@@ -1,0 +1,246 @@
+POX 0.2.0 (carp) / Copyright 2011-2013 James McCauley, et al.
+Debug DEF SEND
+ofp_hello
+  header: 
+    version: 1
+    type:    0 (OFPT_HELLO)
+    length:  8
+    xid:     1
+Debug DEF SEND
+ofp_hello
+  header: 
+    version: 1
+    type:    0 (OFPT_HELLO)
+    length:  8
+    xid:     2
+Debug DEF SEND
+ofp_features_request
+  header: 
+    version: 1
+    type:    5 (OFPT_FEATURES_REQUEST)
+    length:  8
+    xid:     3
+Debug DEF SEND
+ofp_set_config
+  header: 
+    version: 1
+    type:    9 (OFPT_SET_CONFIG)
+    length:  12
+    xid:     4
+  flags: 0
+  miss_send_len: 128
+Debug DEF SEND
+ofp_flow_mod
+  header: 
+    version: 1
+    type:    14 (OFPT_FLOW_MOD)
+    length:  72
+    xid:     5
+  match: 
+    wildcards: nw_tos|tp_dst|dl_dst|dl_src|in_port|dl_vlan_pcp|nw_proto|dl_vlan|tp_src|dl_type|nw_src(/0)|nw_dst(/0) (1110000010000011111111 = 3820ff)
+  cookie: 0
+  command: 3
+  idle_timeout: 0
+  hard_timeout: 0
+  priority: 32768
+  buffer_id: None
+  out_port: 65535
+  flags: 0
+  actions:
+Debug DEF SEND
+ofp_barrier_request
+  header: 
+    version: 1
+    type:    18 (OFPT_BARRIER_REQUEST)
+    length:  8
+    xid:     6
+Debug DEF SEND
+ofp_flow_mod
+  header: 
+    version: 1
+    type:    14 (OFPT_FLOW_MOD)
+    length:  80
+    xid:     7
+  match: 
+    wildcards: nw_tos|tp_dst|dl_dst|dl_src|in_port|dl_vlan_pcp|nw_proto|dl_vlan|tp_src|dl_type|nw_src(/0)|nw_dst(/0) (1110000010000011111111 = 3820ff)
+  cookie: 0
+  command: 0
+  idle_timeout: 20
+  hard_timeout: 0
+  priority: 3000
+  buffer_id: None
+  out_port: 65535
+  flags: 0
+  actions: 
+    type: 0
+    len: 8
+    port: 4
+    max_len: 65535
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:
+Debug DEF SEND
+ofp_echo_request
+  header: 
+    version: 1
+    type:    3 (OFPT_ECHO_REPLY)
+    length:  8
+    xid:     0
+  body:

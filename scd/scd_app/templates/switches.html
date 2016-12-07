@@ -1,0 +1,32 @@
+{% extends "index.html"%}
+
+{% block corpo %}
+<div class="col-md-8 col-xs-6 col-sm-8">
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <h3 class="text-muted text-center"><legend class="text-primary">Switches da Rede</legend></h3>
+            {% for switch in switches %}
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{switch.comut_id}}" aria-expanded="true"
+                               class="list-group list-group-item list-group-item-warning" aria-controls="collapse_{{switch.comut_id}}">Switch {{switch.comut_id}}
+                </a>
+                <div id="collapse_{{switch.comut_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_1">
+                   <div class="row">
+                       <div class="col-md-3">
+                           <div class="form-group">
+                               <span class="label label-info">Switch ID: </span>
+                               <input type="text" name="edt_id" class="form-control input-md" disabled value="{{switch.comut_id}}">
+                           </div>
+                       </div>
+                       <div class="col-md-3">
+                           <div class="form-group">
+                               <span class="label label-info">Nome Switch: </span>
+                               <input type="text" name="edt_nome" class="form-control input-md" disabled value="{{switch.comut_nome}}">
+                           </div>
+                       </div>
+                   </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

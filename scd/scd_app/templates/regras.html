@@ -1,0 +1,185 @@
+{% extends "index.html"%}
+
+{% block corpo %}
+<div class="col-md-8 col-xs-6 col-sm-8">
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <h3 class="text-muted text-center"><legend class="text-primary">Análise de Conflitos de Políticas</legend></h3>
+            <form role="form" method="GET" action="">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="label label-warning">Escolha as Políticas que deseja Visualizar: </span>
+                            <select name="opt_politica" class="form-control">
+                                <option value="0">Todas</option>
+                                <option value="1">Conflitantes</option>
+                                <option value="2">Nao Conflitantes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <span class="label label-warning">Escolha o Switch: </span>
+                            <select name="opt_switch" class="form-control">
+                                    <option value="0">Todos</option>
+                                {% for switch in switches %}
+                                    <option value="{{switch.comut_id}}">{{switch.comut_nome}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-info" name="btnRequisicao" value="Filtrar Politicas" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+           {% for flow in regras %}
+                {% if flow.conflito|length > 0 %}
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{flow.flow_id}}" aria-expanded="true"
+                               class="list-group list-group-item list-group-item-text list-group-item-danger" aria-controls="collapse_{{flow.flow_id}}">
+                    Regra Nº: {{flow.flow_id}} Possui Conflito - Mac: SRC: {{flow.dl_src}} / DST: {{flow.dl_dst}} | IP SRC: {{flow.nw_src}} / DST: {{flow.nw_dst}}
+                    </a>
+                {% else %}
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_{{flow.flow_id}}" aria-expanded="true"
+                               class="list-group list-group-item list-group-item-text list-group-item-success" aria-controls="collapse_{{flow.flow_id}}">
+                    Regra Nº: {{flow.flow_id}} - Mac: SRC: {{flow.dl_src}} / DST: {{flow.dl_dst}} | IP SRC: {{flow.nw_src}} / DST: {{flow.nw_dst}}
+                </a>
+                {% endif %}
+                <div id="collapse_{{flow.flow_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_1">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="label label-info">Switch Nome: </span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.switch}}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="label label-info">Porta Entrada (In Port): </span>
+                                    <input type="text" name="edt_nome" class="form-control input-md" disabled value="{{flow.in_port}}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="label label-info">Tabela de Fluxo: </span>
+                                    <input type="text" name="edt_nome" class="form-control input-md" disabled value="{{flow.table}}">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="label label-info">Prioridade: </span>
+                                    <input type="text" name="edt_nome" class="form-control input-md" disabled value="{{flow.priority}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="label label-info">IP SRC/DST: </span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.nw_src}} / {{flow.nw_dst}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="label label-info">MAC SRC/DST: </span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.dl_src}} / {{flow.dl_dst}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="label label-info">Portas Tcp|Udp SRC/DST: </span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.tp_src}} / {{flow.tp_dst}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="label label-info">NW_Proto:</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.nw_proto}}">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="label label-info">NW ToS:</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.nw_tos}}">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="label label-info">DL Type:</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.dl_type}}">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="label label-info">DL Vlan:</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.dl_vlan}}">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="label label-info">Idle Timeout:</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.idle_timeout}}">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="label label-info">Hard Timeout:</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.hard_timeout}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="label label-info">Ações (Actions):</span>
+                                    <input type="text" name="edt_id" class="form-control input-md" disabled value="{{flow.actions}}">
+                                </div>
+                            </div>
+                        </div>
+                        {% if flow.conflito|length > 0 %}
+                            <h3 class="text-muted"><legend class="text-primary">Verificação dos Conflitos</legend></h3>
+                            <table style="width:100%">
+                                <tr>
+                                    <th>Regra Conflitante</th>
+                                </tr>
+                                {% for x in flow.conflito%}
+                                <tr>
+                                    <td>{{forloop.counter}}º: {{x}}</td>
+                                </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <th>Sugestão para Conflito</th>
+                                </tr>
+                                {% for x in flow.conflito_sugestao%}
+                                <tr>
+                                    <td>{{forloop.counter}}º: {{x}}</td>
+                                </tr>
+                                {% endfor %}
+
+                                <tr>
+                                    <th>Nível do Conflito</th>
+                                </tr>
+                                {% for x in flow.conflito_nivel%}
+                                <tr>
+                                    {% if x == 2 %}
+                                        <td>{{forloop.counter}}º: {{x}} - Alto</td>
+                                    {% else %}
+                                        <td>{{forloop.counter}}º: {{x}} - Médio</td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
