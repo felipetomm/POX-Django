@@ -6,18 +6,18 @@ Projeto desenvolvido na disciplina de Conclusão de Curso, no curso de Ciências
 Seu propósito inicial é detectar conflitos entre políticas (regras de rede) em Redes Definidas por Software (Software Defined Networking - SDN), onde até o presente momento, está realizando esta funcão de forma satisfatória. Além disso, este trabalho foi apontado como um grande diferencial do assunto, visto que nenhum trabalho até a sua data de publicação, propunha algo semelhante.
 Como todo projeto, este também necessita de seus ajustes e melhorias, bem como adição de novas funcionalidades (ex: resolução dos conflitos).
 O projeto utiliza os seguintes recursos:
-> Python 2.7
-> Django
-> PostgreSQL
-> Pox
+-> Python 2.7
+-> Django
+-> PostgreSQL
+-> Pox
 
 O código responsável pela detecção dos conflitos fica por conta de um módulo externo ao pox. Este módulo é caracterizado como o módulo principal do projeto, denominado MDC (Módulo de Detecçao de Conflitos).
 
 Componentes do Projeto:
-> Módulo de Detecção de Conflitos (MDC);
-> Módulo de Coleta (MC);
-> Interface WEB com Django;
-> Banco de Dados PostgreSQL;
+-> Módulo de Detecção de Conflitos (MDC);
+-> Módulo de Coleta (MC);
+-> Interface WEB com Django;
+-> Banco de Dados PostgreSQL;
 
 Funcionalidades dos Componentes:
 1º MDC: Realiza a análise de duas regras, apontando 0-n conflitos. Toda sua estrutura está no arquivo fonte scd_new_analisador_conflitos.py;
